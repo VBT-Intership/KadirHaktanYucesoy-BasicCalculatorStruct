@@ -1,5 +1,5 @@
 
 
 class ICalculateOperation{
-
+  num firstNumber;
 }

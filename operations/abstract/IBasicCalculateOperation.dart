@@ -2,20 +2,27 @@
 
 import 'ICalculateOperation.dart';
 
-class IBasicCalculateOperation implements ICalculateOperation{
-   num add(num firstNumber,num secondNumber){
+class IBasicCalculateOperation implements ICalculateOperation{ 
+
+  num firstNumber;
+  num secondNumber;
+
+
+   num add(){
      throw new UnimplementedError();
    }
 
-   num extract(num firstNumber,num secondNumber){
+   num extract(){
      throw new UnimplementedError();
    }
 
-   num multiplication(num firstNumber,num secondNumber){
+   num multiplication(){
      throw new UnimplementedError();
    }
 
-   num division(num firstNumber,num secondNumber){
+   num division(){
      throw new UnimplementedError();
-   }   
+   }
+
+
 }
