@@ -1,21 +1,27 @@
 
 
-class IBasicCalculateOperationService{
+import '../../operations/abstract/IBasicCalculateOperation.dart';
+import '../../operations/abstract/ICalculateOperation.dart';
+import 'ICalculateOperationService.dart';
 
-  num add(num firstNumber,num secondNumber){
-    return null;
+class IBasicCalculateOperationService implements ICalculateOperationService{
+
+  IBasicCalculateOperation calculateOperation;
+
+  num add(){
+    throw UnimplementedError();
   }
 
-  num extract(num firstNumber,num secondNumber){
-    return null;
+  num extract(){
+    throw UnimplementedError();
   }
 
-  num division(num firstNumber,num secondNumber){
-    return null;
+  num division(){
+    throw UnimplementedError();
   }
 
-  num multiplication(num firstNumber,num secondNumber){
-    return null;
+  num multiplication(){
+    throw UnimplementedError();
   }
 
 }

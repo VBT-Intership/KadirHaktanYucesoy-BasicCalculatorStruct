@@ -6,27 +6,25 @@ import '../../operations/abstract/IBasicCalculateOperation.dart';
 
 class BasicCalculateOperationService implements IBasicCalculateOperationService{
 
-  IBasicCalculateOperation _basicCalculateOperation;
+  IBasicCalculateOperation calculateOperation;
 
-  BasicCalculateOperationService(IBasicCalculateOperation basicCalculateOperation){
-    this._basicCalculateOperation=basicCalculateOperation;
+  BasicCalculateOperationService(IBasicCalculateOperation _basicCalculateOperation){
+    this.calculateOperation=_basicCalculateOperation;
+  } 
+  num add(){
+    return calculateOperation.add();
   }
 
-
-  num add(num firstNumber,num secondNumber){
-    return _basicCalculateOperation.add(firstNumber,secondNumber);
+  num extract(){
+    return calculateOperation.extract();
   }
 
-  num extract(num firstNumber,num secondNumber){
-    return _basicCalculateOperation.extract(firstNumber,secondNumber);
+  num division(){
+    return calculateOperation.division();
   }
 
-  num division(num firstNumber,num secondNumber){
-    return _basicCalculateOperation.division(firstNumber,secondNumber);
-  }
-
-  num multiplication(num firstNumber,num secondNumber){
-    return _basicCalculateOperation.multiplication(firstNumber,secondNumber);
+  num multiplication(){
+    return calculateOperation.multiplication();
   }
 
   
