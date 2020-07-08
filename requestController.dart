@@ -4,38 +4,37 @@
 import 'business/abstract/IBasicCalculateOperationService.dart';
 
 
-class IRequestHandler{
-
-  num ValidateToRequest(num x,num y,String request){
+ class IRequestHandler{
+  num ValidateToRequest(String request){
     throw new UnimplementedError();
   }
 }
 
-class BasicCalculateRequestHandler implements IRequestHandler{
+class BasicCalculateRequestHandler extends IRequestHandler{
 
-   IBasicCalculateOperationService _service;
 
+   IBasicCalculateOperationService _basicCalculateservice;
    BasicCalculateRequestHandler(IBasicCalculateOperationService  service){
-     this._service=service;
+     this._basicCalculateservice=service;
    }
 
 
-    num ValidateToRequest(num x,num y,String request){
+    num ValidateToRequest(String request){
        switch(request){
          case "Toplam":{
-            return _service.add(x,y);
+            return _basicCalculateservice.add();
          }
 
          case "Çıkarma":{
-            return _service.extract(x, y);
+            return _basicCalculateservice.extract();
          }
 
          case "Çarpma":{
-            return _service.multiplication(x, y);
+            return _basicCalculateservice.multiplication();
          }
 
          case "Bölme":{
-           return _service.division(x, y);
+           return _basicCalculateservice.division();
          }
             
        }
