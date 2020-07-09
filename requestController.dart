@@ -1,4 +1,15 @@
 import 'business/abstract/IBasicCalculateOperationService.dart';
+import 'core/error/CalculateOperationException.dart';
+
+enum Requests { ADD, EXTRACT, DIVISION, MULTIPLE, GETBASE }
+
+Map<String, Requests> requestsMap = {
+  "Add": Requests.ADD,
+  "Division": Requests.DIVISION,
+  "Extract": Requests.EXTRACT,
+  "GetBase": Requests.GETBASE,
+  "Multiplication": Requests.MULTIPLE,
+};
 
 class IRequestHandler {
   num ValidateToRequest(String request) {
@@ -13,28 +24,24 @@ class BasicCalculateRequestHandler implements IRequestHandler {
   }
 
   num ValidateToRequest(String request) {
-    switch (request) {
-      case "Toplam":
-        {
-          return _basicCalculateservice.add();
-        }
+    switch (requestsMap[request]) {
+      case Requests.ADD:
+        return _basicCalculateservice.add();
 
-      case "Çıkarma":
-        {
-          return _basicCalculateservice.extract();
-        }
+      case Requests.EXTRACT:
+        return _basicCalculateservice.extract();
 
-      case "Çarpma":
-        {
-          return _basicCalculateservice.multiplication();
-        }
+      case Requests.MULTIPLE:
+        return _basicCalculateservice.multiplication();
 
-      case "Bölme":
-        {
-          return _basicCalculateservice.division();
-        }
+      case Requests.DIVISION:
+        return _basicCalculateservice.division();
+
+      case Requests.GETBASE:
+        throw new CalculateOperationException();
+
+      default:
+        return null;
     }
-
-    return null;
   }
 }
